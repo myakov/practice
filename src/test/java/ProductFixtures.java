@@ -15,6 +15,7 @@ public class ProductFixtures
         bobs.products().add(door);
         bobs.products().add(floorPanel);
 
+
         kates.products().add(floorPanel);
         kates.products().add(new Product("Glass Window", 10));
     }
