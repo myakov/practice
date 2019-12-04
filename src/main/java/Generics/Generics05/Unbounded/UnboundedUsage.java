@@ -16,6 +16,9 @@ public class UnboundedUsage {
         List<?> wildcards = new ArrayList<>();
         wildcards.add(null);
         System.out.println(wildcards);
+
+
+
     }
 
 }

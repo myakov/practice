@@ -3,12 +3,21 @@ package Generics;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.Predicate;
 
 public class MapExamples {
     public static void main(String[] args) {
         Person donDraper = new Person("Don Draper", 89);
         Person peggyOlson = new Person("Peggy Olson", 65);
-        Person bertCooper = new Person("Bert Cooper", 100);
+        Person bertCooper = new Person("test", 100);
+        Predicate<String> p = new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return false;
+            }
+        };
+
+
 
         // Generic Type with two type parameters
         Map<String, Person> personByName = new HashMap<>();
@@ -18,8 +27,10 @@ public class MapExamples {
         personByName.put(peggyOlson.getName(), peggyOlson);
         personByName.put(bertCooper.getName(), bertCooper);
 
+        personByName.computeIfPresent("Plson", (k, v) -> new Person("Peggy Olson", 190));
+        personByName.computeIfAbsent("test3", k -> new Person("test3", 44));
         // Point out hashcode/equals is used here as well
-        System.out.println("Don is " + personByName.get("Don Draper"));
+        // System.out.println("Don is " + personByName.get("Don Draper"));
 
         // foreach key
         for (String name : personByName.keySet()) {
